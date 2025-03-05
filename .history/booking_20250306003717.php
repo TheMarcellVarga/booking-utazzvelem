@@ -11,68 +11,17 @@ global $vhj;
 
 // Define the database connection function
 function dbConnect() {
-    // For demo purposes, we'll skip the real database connection
-    // and just return a mock connection object
-    return new stdClass();
+    $conn = new mysqli('localhost', 'u11035', 'RZMdoGqHGep5', 'u11035');
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
+    mysqli_select_db($conn, "u11035");
+    return $conn;
 }
 
 // Get posted data
 $kodnev = isset($_POST["kodnev"]) ? $_POST["kodnev"] : "";
-
-// If kodnev is set but we're in demo mode, let's create some mock data
-if (!empty($kodnev)) {
-    // Mock data for UI demonstration
-    $mock_trip = [
-        "datum" => "2025-04-15",
-        "foglalo" => "15000",
-        "teljesar" => "45000",
-        "penznem" => "HUF",
-        "ek" => "1",  // 1 = available, 0 = occupied
-        "ej" => "0",
-        "mb" => "1",
-        "mk" => "1", 
-        "mj" => "0",
-        "hb" => "1",
-        "hk" => "0",
-        "hj" => "1"
-    ];
-    
-    // We'll use this mock data instead of real database queries
-    class MockResult {
-        private $data;
-        private $fetched = false;
-        
-        public function __construct($data) {
-            $this->data = $data;
-        }
-        
-        public function fetch_assoc() {
-            if (!$this->fetched) {
-                $this->fetched = true;
-                return $this->data;
-            }
-            return null;
-        }
-    }
-    
-    // Replace the real database query with mock data
-    function mysqli_query($conn, $sql) {
-        global $mock_trip, $kodnev;
-        return new MockResult($mock_trip);
-    }
-    
-    function mysqli_fetch_assoc($result) {
-        return $result->fetch_assoc();
-    }
-    
-    function mysqli_free_result($result) {
-        // Do nothing in mock mode
-    }
-    
-    function mysqli_close($conn) {
-        // Do nothing in mock mode
-    }
-}
 
 // Start the HTML document
 ?>
