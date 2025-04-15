@@ -87,66 +87,72 @@ if (!empty($kodnev)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/fontAwesome.css">
-    <link rel="stylesheet" href="css/hero-slider.css">
-    <link rel="stylesheet" href="css/owl-carousel.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-    <link rel="icon" type="image/x-icon" href="/img/uvicon.ico">
-    
     <style>
         :root {
-            --primary-color: #4a89dc;
-            --secondary-color: #f5f7fa;
+            --primary-color: #3f51b5;
+            --primary-light: #757de8;
+            --primary-dark: #002984;
+            --secondary-color: #f5f5f5;
             --accent-color: #ff9800;
-            --text-color: #333;
-            --light-text: #777;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --text-color: #212121;
+            --light-text: #757575;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--secondary-color);
             color: var(--text-color);
             line-height: 1.6;
         }
         
         .header {
-            background: linear-gradient(135deg, var(--primary-color), #2d62a3);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
             padding: 2rem 0;
-            border-radius: 0 0 10px 10px;
             margin-bottom: 2rem;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
         }
         
         .booking-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
             padding: 2rem;
             margin-bottom: 2rem;
         }
         
         .info-box {
             border-left: 4px solid var(--primary-color);
-            padding: 0.5rem 1rem;
+            padding: 1rem 1.5rem;
             margin: 1rem 0;
-            background-color: #f8f9fa;
+            background-color: #e8eaf6;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
         }
         
         .warning-box {
             border-left: 4px solid var(--accent-color);
-            padding: 0.5rem 1rem;
+            padding: 1rem 1.5rem;
             margin: 1rem 0;
             background-color: #fff3e0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
         }
         
         .seat-map {
@@ -157,68 +163,121 @@ if (!empty($kodnev)) {
         .seat-map table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 10px;
+            border-spacing: 8px;
         }
         
         .seat-map th, .seat-map td {
             text-align: center;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: var(--radius-sm);
         }
         
         .seat-map th {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--white);
+            font-weight: 500;
         }
         
         .seat-map td {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
         }
         
         .seat-available {
             background-color: #e8f5e9 !important;
-            transition: all 0.3s;
+            border-color: #c8e6c9 !important;
         }
         
         .seat-available:hover {
             background-color: #c8e6c9 !important;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
         
         .seat-unavailable {
             background-color: #ffebee !important;
-            color: #b71c1c;
+            border-color: #ffcdd2 !important;
+            color: #c62828;
         }
         
         .seat-driver {
             background-color: #eeeeee !important;
-            color: #757575;
+            border-color: #e0e0e0 !important;
+            color: #616161;
         }
         
-        .btn-booking {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-weight: 600;
+        .form-check-input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        .form-check-label {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--radius-sm);
             transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
-        .btn-booking:hover {
-            background-color: #2d62a3;
+        .form-control:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 0.25rem rgba(63, 81, 181, 0.25);
+        }
+        
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .form-select {
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+        
+        .btn {
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-md);
         }
         
-        .btn-payment {
+        .btn-warning {
             background-color: var(--accent-color);
-            color: white;
+            border-color: var(--accent-color);
+            color: var(--white);
         }
         
-        .btn-payment:hover {
+        .btn-warning:hover, .btn-warning:focus {
             background-color: #f57c00;
+            border-color: #f57c00;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
         
         .flash-warning {
@@ -232,20 +291,82 @@ if (!empty($kodnev)) {
         
         .trip-details {
             background-color: #e3f2fd;
-            padding: 15px;
-            border-radius: 5px;
-            font-weight: bold;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .trip-details h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .vehicle-image {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .vehicle-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        .logo-container {
             text-align: center;
-            margin: 1rem 0;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-container img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         
         @media (max-width: 768px) {
             .header {
-                padding: 1rem 0;
+                padding: 1.5rem 0;
             }
             
             .booking-container {
-                padding: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .seat-map th, .seat-map td {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -256,12 +377,12 @@ if (!empty($kodnev)) {
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-3 text-center text-md-start">
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="UtazzVelem Logo" height="90" width="100" class="img-fluid">
+                    <a href="index.html" class="logo-container">
+                        <img src="img/logo.png" alt="UtazzVelem Logo" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-9 text-center text-md-start">
-                    <h1>Foglalás <a href="index.html" class="text-white text-decoration-none">UtazzVelem!</a></h1>
+                    <h1 class="mb-0">Foglalás <a href="index.html" class="text-white text-decoration-none">UtazzVelem!</a></h1>
                 </div>
             </div>
         </div>
@@ -281,31 +402,31 @@ if (!empty($kodnev)) {
                         <p><i class="fas fa-info-circle me-2"></i> Ezután megjelennek a kiválasztott út adatai. Ezekhez tudsz csatlakozni az alábbi módon:</p>
                         <p><i class="fas fa-info-circle me-2"></i> A jelölő négyzetekkel tudod kiválasztani az ülőhelyedet. Egyszerre több személynek is foglalható hely.</p>
                         <p><i class="fas fa-info-circle me-2"></i> Add meg az e-mail címed, neved és telefonszámod és a beszállás tervezett helyét, majd a FOGLALÁS gomb megnyomása után a foglalást rögzitjük. Hamarosan kapsz egy visszaigazoló emailt.</p>
-                        <p><i class="fas fa-info-circle me-2"></i> Ezek után a fizetés gomb megnyomásával kifizetheted a foglalót bankkártyával. A közleményt (melyik út) és a foglaló összegét Neked kell beírni, utána meg kell adni a fizetési adatokat.</p>
+                        <p class="mb-0"><i class="fas fa-info-circle me-2"></i> Ezek után a fizetés gomb megnyomásával kifizetheted a foglalót bankkártyával. A közleményt (melyik út) és a foglaló összegét Neked kell beírni, utána meg kell adni a fizetési adatokat.</p>
                     </div>
                     
                     <div class="warning-box">
                         <p><i class="fas fa-exclamation-triangle me-2"></i> <strong>A foglalás akkor válik érvényessé, ha a foglaló összege, vagy a bérlet teljes ára (amennyiben már kevés idő van az indulásig) be lett fizetve.</strong></p>
-                        <p><i class="fas fa-exclamation-triangle me-2"></i> <strong>A foglaló befizetésére a foglalás után 3 nap a határidő. Az addig ki nem fizetett foglalásokat a program automatikusan törli.</strong></p>
+                        <p class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i> <strong>A foglaló befizetésére a foglalás után 3 nap a határidő. Az addig ki nem fizetett foglalásokat a program automatikusan törli.</strong></p>
                     </div>
                     
                     <div class="info-box mt-3">
                         <p><i class="fas fa-info-circle me-2"></i> Ha egy útra minden hely foglalt kérlek írj e-mailt az info@utazzvelem.eu email címre, s ha lemondás lesz, értesítelek!</p>
-                        <p><i class="fas fa-info-circle me-2"></i> Sofőr nélküli bérléshez kérlek írj e-mailt az info@utazzvelem.eu email címre!</p>
+                        <p class="mb-0"><i class="fas fa-info-circle me-2"></i> Sofőr nélküli bérléshez kérlek írj e-mailt az info@utazzvelem.eu email címre!</p>
                     </div>
                     
                     <div class="text-center mt-4">
-                        <p class="mb-2">Ha már régebben foglaltál és csak fizetni szeretnél, nyomd meg a fizetés gombot:</p>
+                        <p class="mb-3">Ha már régebben foglaltál és csak fizetni szeretnél, nyomd meg a fizetés gombot:</p>
                         <form method="get" action="paypal.html" class="d-inline-block">
-                            <button type="submit" class="btn btn-booking btn-payment"><i class="fas fa-credit-card me-2"></i>Fizetés</button>
+                            <button type="submit" class="btn btn-warning btn-icon"><i class="fas fa-credit-card"></i> Fizetés</button>
                         </form>
                     </div>
                     
                     <div class="warning-box mt-4">
-                        <p><strong><span id="warning" class="flash-warning"><i class="fas fa-exclamation-circle me-2"></i>Figyelem!</span> A vezetőülés melletti két hely szűkebb, mint a többi, ezért pl. egy gyereknek és egy felnőttnek javasolt. Két felnőtt nehezen fér el!</strong></p>
+                        <p class="mb-0"><strong><span id="warning" class="flash-warning"><i class="fas fa-exclamation-circle me-2"></i>Figyelem!</span> A vezetőülés melletti két hely szűkebb, mint a többi, ezért pl. egy gyereknek és egy felnőttnek javasolt. Két felnőtt nehezen fér el!</strong></p>
                     </div>
                     
-                    <div class="mt-4">
+                    <div class="mt-5">
                         <form action="booking.php" method="post" class="row g-3 justify-content-center">
                             <div class="col-md-8">
                                 <label for="kodnev" class="form-label">Válassz utat:</label>
@@ -318,7 +439,7 @@ if (!empty($kodnev)) {
                                 </select>
                             </div>
                             <div class="col-12 text-center mt-4">
-                                <button type="submit" id="form-submit" class="btn btn-booking"><i class="fas fa-check-circle me-2"></i>Kiválasztás</button>
+                                <button type="submit" id="form-submit" class="btn btn-primary btn-icon"><i class="fas fa-check-circle"></i> Kiválasztás</button>
                             </div>
                         </form>
                     </div>
@@ -355,20 +476,20 @@ if (!empty($kodnev)) {
                     <h3 class="text-center mb-4">Ülésfoglalás</h3>
                     
                     <div class="trip-details">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-md-6">
                                 <h4><?php echo $datum . " " . $kodnev; ?></h4>
                             </div>
                             <div class="col-md-6">
-                                <p class="mb-0">Teljes összeg: <?php echo $teljesar . " " . $penznem; ?>/fő</p>
-                                <p class="mb-0">Foglaló: <?php echo $foglalo . " " . $penznem; ?>/fő</p>
+                                <p class="mb-0"><strong>Teljes összeg:</strong> <?php echo $teljesar . " " . $penznem; ?>/fő</p>
+                                <p class="mb-0"><strong>Foglaló:</strong> <?php echo $foglalo . " " . $penznem; ?>/fő</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="seat-map mt-5">
-                        <div class="text-center mb-3">
-                            <img src="img/vivaro.png" alt="VIVARO" height="200" width="84" class="img-fluid">
+                        <div class="vehicle-image mb-4">
+                            <img src="img/vivaro.png" alt="VIVARO" class="img-fluid">
                         </div>
                         
                         <form action="booking2.php" method="post">
@@ -385,16 +506,18 @@ if (!empty($kodnev)) {
                                     <tr>
                                         <th>1. sor</th>
                                         <td class="seat-driver">
-                                            Vezető ülés
+                                            <i class="fas fa-car-side me-2"></i> Vezető ülés
                                         </td>
                                         <td class="<?php echo ($vek == "1") ? 'seat-available' : 'seat-unavailable'; ?>">
                                             <?php if ($vek == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chek" id="chek">
-                                                    <label class="form-check-label" for="chek">Szabad</label>
+                                                    <label class="form-check-label" for="chek">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chek" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -402,10 +525,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vej == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chej" id="chej">
-                                                    <label class="form-check-label" for="chej">Szabad</label>
+                                                    <label class="form-check-label" for="chej">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chej" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -416,10 +541,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vmb == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chmb" id="chmb">
-                                                    <label class="form-check-label" for="chmb">Szabad</label>
+                                                    <label class="form-check-label" for="chmb">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chmb" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -427,10 +554,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vmk == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chmk" id="chmk">
-                                                    <label class="form-check-label" for="chmk">Szabad</label>
+                                                    <label class="form-check-label" for="chmk">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chmk" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -438,10 +567,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vmj == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chmj" id="chmj">
-                                                    <label class="form-check-label" for="chmj">Szabad</label>
+                                                    <label class="form-check-label" for="chmj">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chmj" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -452,10 +583,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vhb == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chhb" id="chhb">
-                                                    <label class="form-check-label" for="chhb">Szabad</label>
+                                                    <label class="form-check-label" for="chhb">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chhb" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -463,10 +596,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vhk == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chhk" id="chhk">
-                                                    <label class="form-check-label" for="chhk">Szabad</label>
+                                                    <label class="form-check-label" for="chhk">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chhk" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -474,10 +609,12 @@ if (!empty($kodnev)) {
                                             <?php if ($vhj == "1"): ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="chhj" id="chhj">
-                                                    <label class="form-check-label" for="chhj">Szabad</label>
+                                                    <label class="form-check-label" for="chhj">
+                                                        <i class="fas fa-chair me-1"></i> Szabad
+                                                    </label>
                                                 </div>
                                             <?php else: ?>
-                                                Foglalt
+                                                <i class="fas fa-ban me-1"></i> Foglalt
                                                 <input type="hidden" name="chhj" value="no">
                                             <?php endif; ?>
                                         </td>
@@ -492,25 +629,33 @@ if (!empty($kodnev)) {
                             <input type="hidden" name="chteljesar" value="<?php echo $teljesar; ?>">
                             <input type="hidden" name="chpenznem" value="<?php echo $penznem; ?>">
                             
-                            <div class="row g-3 mt-4">
+                            <div class="row g-3 mt-5">
                                 <div class="col-md-6">
-                                    <label for="elerhetoseg" class="form-label">E-mail cím:</label>
+                                    <label for="elerhetoseg" class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>E-mail cím:
+                                    </label>
                                     <input type="email" class="form-control" id="elerhetoseg" name="elerhetoseg" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nev" class="form-label">Név:</label>
+                                    <label for="nev" class="form-label">
+                                        <i class="fas fa-user me-2"></i>Név:
+                                    </label>
                                     <input type="text" class="form-control" id="nev" name="nev" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="telefon" class="form-label">Telefonszám:</label>
+                                    <label for="telefon" class="form-label">
+                                        <i class="fas fa-phone-alt me-2"></i>Telefonszám:
+                                    </label>
                                     <input type="tel" class="form-control" id="telefon" name="telefon" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="besz" class="form-label">Beszállás helye:</label>
+                                    <label for="besz" class="form-label">
+                                        <i class="fas fa-map-marker-alt me-2"></i>Beszállás helye:
+                                    </label>
                                     <input type="text" class="form-control" id="besz" name="besz" required>
                                 </div>
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-booking"><i class="fas fa-ticket-alt me-2"></i>FOGLALÁS</button>
+                                <div class="col-12 text-center mt-5">
+                                    <button type="submit" class="btn btn-primary btn-icon"><i class="fas fa-ticket-alt"></i> FOGLALÁS</button>
                                 </div>
                             </div>
                         </form>
@@ -527,7 +672,7 @@ if (!empty($kodnev)) {
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -535,7 +680,7 @@ if (!empty($kodnev)) {
                     <p>Utazási élmények egy helyen</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p>Kapcsolat: <a href="mailto:info@utazzvelem.eu" class="text-white">info@utazzvelem.eu</a></p>
+                    <p>Kapcsolat: <a href="mailto:info@utazzvelem.eu"><i class="fas fa-envelope me-1"></i> info@utazzvelem.eu</a></p>
                 </div>
             </div>
         </div>

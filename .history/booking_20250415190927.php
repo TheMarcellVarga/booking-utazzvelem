@@ -413,20 +413,6 @@ if (!empty($kodnev)) {
         .fa-loaded .svg-icon {
             display: none;
         }
-        
-        .text-logo {
-            padding: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .text-logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .text-logo span {
-            display: inline-block;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
     </style>
     
     <!-- Preload critical icons as inline SVG -->
@@ -438,9 +424,6 @@ if (!empty($kodnev)) {
             <path fill="currentColor" d="M128 160h320v192H128V160zm400 96c0 26.51 21.49 48 48 48v96c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48v-96c26.51 0 48-21.49 48-48s-21.49-48-48-48v-96c0-26.51 21.49-48 48-48h480c26.51 0 48 21.49 48 48v96c-26.51 0-48 21.49-48 48zm-48-104c0-13.255-10.745-24-24-24H120c-13.255 0-24 10.745-24 24v208c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V152z"></path>
         </svg>
     </div>
-    
-    <!-- Favicon - inline emoji -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚐%3C/text%3E%3C/svg%3E">
 </head>
 <body>
     <!-- Header -->
@@ -449,9 +432,7 @@ if (!empty($kodnev)) {
             <div class="row align-items-center">
                 <div class="col-md-3 text-center text-md-start">
                     <a href="index.html" class="logo-container">
-                        <div class="text-logo">
-                            <span style="font-size: 24px; font-weight: bold; color: white; letter-spacing: 1px;">Utazz<span style="color: #FFC107;">Velem!</span></span>
-                        </div>
+                        <img src="img/logo.png" alt="UtazzVelem Logo" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-9 text-center text-md-start">
@@ -512,12 +493,7 @@ if (!empty($kodnev)) {
                                 </select>
                             </div>
                             <div class="col-12 text-center mt-4">
-                                <button type="submit" id="form-submit" class="btn btn-primary btn-icon">
-                                    <svg class="svg-icon" viewBox="0 0 512 512">
-                                        <use xlink:href="#icon-check"></use>
-                                    </svg>
-                                    <i class="fas fa-check-circle"></i><span class="icon-fallback-text">✓ </span> Kiválasztás
-                                </button>
+                                <button type="submit" id="form-submit" class="btn btn-primary btn-icon"><i class="fas fa-check-circle"></i><span class="icon-fallback-text">✓ </span> Kiválasztás</button>
                             </div>
                         </form>
                     </div>
@@ -733,12 +709,7 @@ if (!empty($kodnev)) {
                                     <input type="text" class="form-control" id="besz" name="besz" required>
                                 </div>
                                 <div class="col-12 text-center mt-5">
-                                    <button type="submit" class="btn btn-primary btn-icon">
-                                        <svg class="svg-icon" viewBox="0 0 576 512">
-                                            <use xlink:href="#icon-ticket"></use>
-                                        </svg>
-                                        <i class="fas fa-ticket-alt"></i><span class="icon-fallback-text">🎟️ </span> FOGLALÁS
-                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-icon"><i class="fas fa-ticket-alt"></i><span class="icon-fallback-text">🎟️ </span> FOGLALÁS</button>
                                 </div>
                             </div>
                         </form>
